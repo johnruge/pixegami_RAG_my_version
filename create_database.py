@@ -25,8 +25,6 @@ load_dotenv()
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 CHROMA_PATH = "chroma"
-DATA_PATH = "data/books"
-
 
 def main():
     generate_data_store()
@@ -39,7 +37,7 @@ def generate_data_store():
 
 
 def load_documents():
-    loader = DirectoryLoader(DATA_PATH, glob="*.md")
+    loader = DirectoryLoader("data/")
     documents = loader.load()
     return documents
 
